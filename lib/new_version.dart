@@ -142,7 +142,7 @@ class NewVersion {
       storeVersion:
           _getCleanVersion(forceAppVersion ?? jsonObj['results'][0]['version']),
       appStoreLink: jsonObj['results'][0]['trackViewUrl'],
-      releaseNotes: jsonObj['results'][0]['releaseNotes'],
+//       releaseNotes: jsonObj['results'][0]['releaseNotes'],
     );
   }
 
@@ -160,7 +160,7 @@ class NewVersion {
     final document = parse(response.body);
 
     String storeVersion = '0.0.0';
-    String? releaseNotes;
+//     String? releaseNotes;
 
     final additionalInfoElements = document.getElementsByClassName('hAyfc');
     if (additionalInfoElements.isNotEmpty) {
@@ -170,13 +170,13 @@ class NewVersion {
       storeVersion = versionElement.querySelector('.htlgb')!.text;
 
       final sectionElements = document.getElementsByClassName('W4P4ne');
-      final releaseNotesElement = sectionElements.firstWhereOrNull(
-            (elm) => elm.querySelector('.wSaTQd')!.text == 'What\'s New',
-      );
-      releaseNotes = releaseNotesElement
-          ?.querySelector('.PHBdkd')
-          ?.querySelector('.DWPxHb')
-          ?.text;
+//       final releaseNotesElement = sectionElements.firstWhereOrNull(
+//             (elm) => elm.querySelector('.wSaTQd')!.text == 'What\'s New',
+//       );
+//       releaseNotes = releaseNotesElement
+//           ?.querySelector('.PHBdkd')
+//           ?.querySelector('.DWPxHb')
+//           ?.text;
     } else {
       final scriptElements = document.getElementsByTagName('script');
       final infoScriptElement = scriptElements.firstWhere(
