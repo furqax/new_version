@@ -193,14 +193,14 @@ class NewVersion {
       final data =  parsed['data'];
 
       storeVersion = data[1][2][140][0][0][0];
-      releaseNotes = data[1][2][144][1][1];
+//       releaseNotes = data[1][2][144][1][1];
     }
 
     return VersionStatus._(
       localVersion: _getCleanVersion(packageInfo.version),
       storeVersion: _getCleanVersion(forceAppVersion ?? storeVersion),
       appStoreLink: uri.toString(),
-      releaseNotes: releaseNotes,
+//       releaseNotes: releaseNotes,
     );
   }
   /// Shows the user a platform-specific alert about the app update. The user
